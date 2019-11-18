@@ -58,7 +58,7 @@ public class TestNGReview {
     public static Object[][] testData(){
         return new Object[][]{{"https://www.apple.com/", "Apple"}, //1st set of data
                               {"http://google.com", "Google"}     //2nd set of data
-        };
+            };
     }
     //data provider must return 2d array of Object
     //1st parameter  = 1 object in the inner array, 2nd parameter = 2 object in the inner array
