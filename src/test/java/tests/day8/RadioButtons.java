@@ -35,6 +35,7 @@ public class RadioButtons {
         //assert true that button is selected
         //if button is selected it will return true, otherwise false
         boolean isSelected = blueButton.isSelected();
+        BrowserUtils.wait(3);
         Assert.assertTrue(isSelected); // will expected that isSelected is true
     }
 
