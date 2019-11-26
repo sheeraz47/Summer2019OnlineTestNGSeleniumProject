@@ -23,11 +23,12 @@ public class TestCases {
     public void setup(){
         driver = BrowserFactory.getDriver("chrome");
         driver.get("http://practice.cybertekschool.com/");
+        driver.findElement(By.linkText("Registration Form")).click();
     }
 
     @Test(description = " Verify the wrong date of birth")
     public void test1(){
-        driver.findElement(By.linkText("Registration Form")).click();
+
         driver.findElement(By.cssSelector("input[name='birthday']")).sendKeys("wrong_dob");
         String actualmessage = driver.findElement(By.xpath("//*[@id=\"registrationForm\"]/div[8]/div/small[2]")).getText();
         String expectedMessage = "The date of birth is not valid";
@@ -35,9 +36,9 @@ public class TestCases {
 
     }
 
-    @Test(description = " Verify the check boxes displayed")
+    @Test(description = " Verify the check boxes is displayed")
     public void test2() {
-        driver.findElement(By.linkText("Registration Form")).click();
+
         List<WebElement> checkboxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
         for (WebElement checkbox : checkboxes) {
             if ( !checkbox.isSelected()) {
@@ -49,7 +50,7 @@ public class TestCases {
 
     @Test(description = "Verify that first name warning message is displayed ")
     public void testcase3(){
-        driver.findElement(By.linkText("Registration Form")).click();
+
         driver.findElement(By.cssSelector("input[name='firstname']")).sendKeys("a");
         ////*[@data-bv-for='firstname'][2]
         String actualfirsName = driver.findElement(By.xpath("//*[@data-bv-for='firstname'][2]")).getText();
@@ -58,7 +59,7 @@ public class TestCases {
     }
     @Test(description = "Verify that last name warning message is displayed ")
     public void testcase4(){
-        driver.findElement(By.linkText("Registration Form")).click();
+
         driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys("a");
         String actuallastName = driver.findElement(By.xpath("//*[@data-bv-for='lastname'][2]")).getText();
         String expectedlastname = "The last name must be more than 2 and less than 64 characters long";
@@ -66,20 +67,28 @@ public class TestCases {
     }
 
     @Test(description = "Verify that registration form completion message is displayed")
-    public void testcase(){
-        driver.findElement(By.linkText("Registration Form")).click();
-        driver.findElement(By.cssSelector("input[name='firstname']")).sendKeys("Muhammad");
-        driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys("Saeed");
-        driver.findElement(By.cssSelector("input[name='username']")).sendKeys("sheeraz47");
-        driver.findElement(By.cssSelector("input[name='email']")).sendKeys("sheeraz@email.com");
+    public void testcase5(){
+
+        driver.findElement(By.cssSelector("input[name='firstname']")).sendKeys("John");
+        driver.findElement(By.cssSelector("input[name='lastname']")).sendKeys("Smith");
+        driver.findElement(By.cssSelector("input[name='username']")).sendKeys("msmith");
+        driver.findElement(By.cssSelector("input[name='email']")).sendKeys("smith@email.com");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("12345678");
-        driver.findElement(By.cssSelector("input[name='phone']")).sendKeys("5169430453");
-
-        driver.findElement(By.cssSelector("input[value='male']")).click();
+        driver.findElement(By.cssSelector("input[name='phone']")).sendKeys("516943023");
+        driver.findElement(By.xpath("//*[@data-bv-field=\"gender\"]")).click();
         driver.findElement(By.cssSelector("input[name='birthday']")).sendKeys("01/22/1981");
+        Select department = new Select(driver.findElement(By.xpath("//*[@name='department']")));
+        department.selectByIndex(1);
+        Select jobtitle = new Select(driver.findElement(By.xpath("//*[@name='job_title']")));
+        jobtitle.selectByVisibleText("SDET");
 
+        driver.findElement(By.xpath("//input[@id='inlineCheckbox2']/following-sibling::label")).click();
 
-        BrowserUtils.wait(3);
+        String actulauResult =  driver.findElement(By.id("wooden_spoon")).getText();
+
+        String expectedResult = "You've successfully completed registration!";
+       // Assert.assertEquals(actualResult, expectedResult, "Message was not displayed");
+
     }
 
 
