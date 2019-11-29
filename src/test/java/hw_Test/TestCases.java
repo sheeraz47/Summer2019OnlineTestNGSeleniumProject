@@ -74,20 +74,18 @@ public class TestCases {
         driver.findElement(By.cssSelector("input[name='username']")).sendKeys("msmith");
         driver.findElement(By.cssSelector("input[name='email']")).sendKeys("smith@email.com");
         driver.findElement(By.cssSelector("input[name='password']")).sendKeys("12345678");
-        driver.findElement(By.cssSelector("input[name='phone']")).sendKeys("516943023");
+        driver.findElement(By.cssSelector("input[name='phone']")).sendKeys("516-943-0235");
         driver.findElement(By.xpath("//*[@data-bv-field=\"gender\"]")).click();
         driver.findElement(By.cssSelector("input[name='birthday']")).sendKeys("01/22/1981");
         Select department = new Select(driver.findElement(By.xpath("//*[@name='department']")));
         department.selectByIndex(1);
         Select jobtitle = new Select(driver.findElement(By.xpath("//*[@name='job_title']")));
         jobtitle.selectByVisibleText("SDET");
-
         driver.findElement(By.xpath("//input[@id='inlineCheckbox2']/following-sibling::label")).click();
-
-        String actulauResult =  driver.findElement(By.id("wooden_spoon")).getText();
-
+        driver.findElement(By.xpath("//button[text() = 'Sign up']")).click();
+        String actualResult = driver.findElement(By.xpath("//button[text() = 'Sign up']")).getText();
         String expectedResult = "You've successfully completed registration!";
-       // Assert.assertEquals(actualResult, expectedResult, "Message was not displayed");
+        Assert.assertEquals(actualResult, expectedResult, "Message was not displayed");
 
     }
 
@@ -97,6 +95,6 @@ public class TestCases {
 
     @AfterMethod
     public void teardown(){
-        driver.quit();
+      driver.quit();
     }
 }
