@@ -1,4 +1,4 @@
-package test_cases;
+package hw1;
 
 
 import org.openqa.selenium.By;
