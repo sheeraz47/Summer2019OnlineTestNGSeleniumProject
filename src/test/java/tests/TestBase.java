@@ -15,6 +15,7 @@ public abstract class TestBase {
     public void setup(){
         String url = ConfigurationReader.getProperty("url");
         Driver.get().get(url);
+
     }
 
     @AfterMethod

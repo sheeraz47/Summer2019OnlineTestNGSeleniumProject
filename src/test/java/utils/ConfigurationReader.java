@@ -7,6 +7,8 @@ public class ConfigurationReader {
     //to values based on key names
     //we use Properties class to load custom .properties files
     private static Properties configFile;
+
+
     static {
         try {
             //provides access to file
@@ -26,7 +28,9 @@ public class ConfigurationReader {
             e.printStackTrace();
         }
     }
+
     public static String getProperty(String key) {
         return configFile.getProperty(key);
     }
+
 }
