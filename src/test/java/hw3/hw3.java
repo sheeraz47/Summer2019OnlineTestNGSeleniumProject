@@ -11,7 +11,7 @@ import utils.BrowserFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestcasesHw3 {
+public class hw3 {
         private WebDriver driver;
         private WebDriverWait wait;
 
