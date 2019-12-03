@@ -14,10 +14,10 @@ import utils.BrowserFactory;
 
 public class TestCases {
 
-​
+
         private WebDriver driver;
         private WebDriverWait wait;
-​
+
         @BeforeMethod
         public void setup(){
             driver = BrowserFactory.getDriver("Chrome");
@@ -25,7 +25,7 @@ public class TestCases {
             driver.findElement(By.linkText("Status Codes")).click();
             wait = new WebDriverWait(driver, 10);
         }
-​
+
         @DataProvider(name = "TestData")
         public Object[][] data(){
             return new Object[][]{{"200", "This page returned a 200 status code"},
@@ -34,10 +34,10 @@ public class TestCases {
                     {"500", "This page returned a 500 status code"}
             };
         }
-​
+
         @Test(dataProvider = "TestData")
         public void TestCases(String statuscode, String expectedResult){
-​
+
             WebElement button = driver.findElement(By.linkText(statuscode));
             wait.until(ExpectedConditions.visibilityOf(button));
             button.click();
@@ -48,13 +48,13 @@ public class TestCases {
             actualResult = actualResult.substring(0,dotIndex);
             Assert.assertEquals(actualResult, expectedResult);
         }
-​
-        ​
-        ​
+
+
+
         @AfterMethod
         public void teardown() {
             driver.quit();
         }
-​
+
     }
 

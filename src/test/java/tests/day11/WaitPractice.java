@@ -90,7 +90,7 @@ public class WaitPractice {
 
         submit.click();
 
-        WebElement message = driver.findElement(By.tagName("h4"));
+        WebElement message = driver.findElement(By.tagName("hw4"));
 
         wait.until(ExpectedConditions.visibilityOf(message));
 
@@ -122,7 +122,7 @@ public class WaitPractice {
         //wait, within 10 seconds, until that button is available for click
         wait.until(ExpectedConditions.elementToBeClickable(submit));
         submit.click();
-        WebElement message = driver.findElement(By.tagName("h4"));
+        WebElement message = driver.findElement(By.tagName("hw4"));
         wait.until(ExpectedConditions.visibilityOf(message));
         String expectedMessage = "Welcome to the Secure Area. When you are done click logout below.";
         String actualMessage = message.getText();

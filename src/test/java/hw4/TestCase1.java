@@ -1,17 +1,13 @@
-package h4;
+package hw4;
 
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Driver;
-
-import java.util.List;
 
 public class TestCase1 extends VyTrack {
 
@@ -40,9 +36,7 @@ public class TestCase1 extends VyTrack {
         public void Test2(){
             Driver.get().findElement(By.cssSelector("[class='visibility-cell']")).click();
             WebElement name;
-            for(int i = 0; i < 7; i++){
-               // name = Driver.get().findElement();
-            }
+
 
 
 
