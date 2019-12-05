@@ -14,21 +14,16 @@ public class CreateCalendarEventTests extends TestBase {
         LoginPage loginPage = new LoginPage();
         CalendarEventsPage calendarEventsPage = new CalendarEventsPage();
         CreateCalendarEventPage createCalendarEventPage = new CreateCalendarEventPage();
-
         //login as Stephan Haley (storemanager85)
         loginPage.login("storemanager85", "UserUser123");
-
         //go to calendar events page
         loginPage.navigateTo("Activities", "Calendar Events");
-
         //click on create calendar event button
         calendarEventsPage.waitUntilLoaderMaskDisappear();
         calendarEventsPage.clickToCreateCalendarEvent();
-
         calendarEventsPage.waitUntilLoaderMaskDisappear();
         String expectedOwner = "Stephan Haley";
         String actualOwner = createCalendarEventPage.owner.getText().trim();
-        System.out.println(actualOwner);
         Assert.assertEquals(actualOwner, expectedOwner);
 
 

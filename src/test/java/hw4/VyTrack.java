@@ -26,7 +26,7 @@ public abstract class VyTrack {
         Driver.get().findElement(By.id("prependedInput2")).sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
         Driver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement loaderMask = Driver.get().findElement(By.cssSelector("div[class='loader-mask shown']"));
-        wait.until(ExpectedConditions.visibilityOf(loaderMask));
+        wait.until(ExpectedConditions.invisibilityOf(loaderMask));
         wait.until(ExpectedConditions.invisibilityOf(loaderMask));
 
         WebElement activitiesElement = Driver.get().findElement(By.linkText("Activities"));
