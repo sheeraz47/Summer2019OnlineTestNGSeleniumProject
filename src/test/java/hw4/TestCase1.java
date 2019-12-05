@@ -81,7 +81,7 @@ public class TestCase1 extends VyTrack {
             startingtime.click();
             Driver.get().findElement(By.xpath("//li[contains(text(),'12:00 AM')]")).click();
             WebElement endingtime = Driver.get().findElement(By.cssSelector("[class='ui-timepicker-am ui-timepicker-selected']:nth-of-type(3)"));
-            String actualendingTime = endingtime.getText();
+            String actualendingTime = endingtime.getText();                 //"[class='ui-timepicker-am ui-timepicker-selected']:nth-of-type(3)"
             String expectedendingTime = "1:00 AM";
             Assert.assertEquals(actualendingTime, expectedendingTime, "Start time and end time both have no time difference ");
 
