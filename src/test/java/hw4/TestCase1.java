@@ -41,8 +41,14 @@ public class TestCase1 extends VyTrack {
 
         @Test(description = "Verify that “Title” column still displayed")
         public void Test2(){
-            Driver.get().findElement(By.cssSelector("[class='visibility-cell']")).click();
+            Driver.get().findElement(By.cssSelector("[title = 'Grid Settings']")).click();
+
             WebElement name;
+            for(int i = 2; i <= 7; i++){
+                name = Driver.get().findElement(By.xpath("//tr["+ i +"]//td[3]//input"));
+                name.click();
+                Assert.assertTrue(name.isDisplayed(), "Title is not displayed");
+            }
 
         }
         @Test(description = "Verify that 'Save And Close', 'Save And New' and 'Save' options are available")
@@ -77,16 +83,22 @@ public class TestCase1 extends VyTrack {
             Driver.get().findElement(By.cssSelector("[title='Create Calendar event']")).click();
             WebElement loaderMask = Driver.get().findElement(By.cssSelector("div[class='loader-mask shown']"));
             wait.until(ExpectedConditions.invisibilityOf(loaderMask));
-            WebElement startingtime = Driver.get().findElement(By.cssSelector("[class='input-small timepicker-input start ui-timepicker-input']"));
-            startingtime.click();
+            WebElement startingTime = Driver.get().findElement(By.cssSelector("[class='input-small timepicker-input start ui-timepicker-input']"));
+            startingTime.click();
             Driver.get().findElement(By.xpath("//li[contains(text(),'12:00 AM')]")).click();
-            WebElement endingtime = Driver.get().findElement(By.cssSelector("[class='ui-timepicker-am ui-timepicker-selected']:nth-of-type(3)"));
-            String actualendingTime = endingtime.getText();                 //"[class='ui-timepicker-am ui-timepicker-selected']:nth-of-type(3)"
-            String expectedendingTime = "1:00 AM";
-            Assert.assertEquals(actualendingTime, expectedendingTime, "Start time and end time both have no time difference ");
+            Driver.get().findElement(By.cssSelector("[class='input-small timepicker-input end ui-timepicker-input']")).click();
+            WebElement endingTime = Driver.get().findElement(By.cssSelector("[class='ui-timepicker-am ui-timepicker-selected']:nth-of-type(3)"));
+            String actualEndingTime = endingTime.getText();
+            String expectedEndingTime = "1:00 AM";
+            Assert.assertTrue(endingTime.isDisplayed());
+            Assert.assertEquals(actualEndingTime, expectedEndingTime, "Start time and end time both have no time difference ");
+        }
 
+        @Test(description = "Verify that end time is equals to '10:00 PM' ")
+        public void Test6(){
 
         }
+
 
 
     }
