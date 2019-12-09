@@ -7,5 +7,4 @@ public class CreateCalendarEventPage extends BasePage {
 
     @FindBy(css = "[class='select2-chosen']")
     public WebElement owner;
-
 }
