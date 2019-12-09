@@ -23,8 +23,9 @@ public class SmokeTest extends TestBase {
         Assert.assertEquals(loginPage.getPageSubTitle(), pageSubTitle);
 
         extentTest.pass("Verified that page subtitle '" + pageSubTitle + "' is displayed");
-
     }
+
+
 
     @DataProvider(name = "navigationInfo")
     public Object[][] navigationInfo() {
