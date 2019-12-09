@@ -11,7 +11,7 @@ import utils.Driver;
 public class LoginTests extends TestBase {
 
     @Test(description = "Verify that page title is a 'Dashboard'")
-    public void tets1(){
+    public void test1(){
 
         LoginPage loginPage = new LoginPage();
         loginPage.login("storemanager85","UserUser123");
