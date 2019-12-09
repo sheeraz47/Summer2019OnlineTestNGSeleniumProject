@@ -25,11 +25,11 @@ public abstract class TestBase {
 // * ExtentHtmlReporter html = new ExtentHtmlReporter("Extent.html");
 // * ExtentXReporter extentx = new ExtentXReporter("localhost");
 
-    protected ExtentReports extentReports;
+    protected static ExtentReports extentReports;
     //    The ExtentHtmlReporter creates a rich standalone HTML file. It allows several
-    protected ExtentHtmlReporter extentHtmlReporter;
+    protected static ExtentHtmlReporter extentHtmlReporter;
     //    Defines a test. You can add logs, snapshots, assign author and categories to a test and its children.
-    protected ExtentTest extentTest;
+    protected static ExtentTest extentTest;
 
     @BeforeTest
     public void beforeTest(){
